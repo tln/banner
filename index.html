@@ -1,0 +1,75 @@
+<link type="text/css" rel="stylesheet" href="banner.css">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script>
+// Call by hashstate. Set state in DOM
+function onHashStateInit(state) {
+    if (state.text) {
+        $('#text').text(state.text);
+    }
+    if (state.theme) {
+        $('#banner').attr('data-theme', state.theme);
+    }
+}
+$(function () {
+    var text = $('#text'), banner = $('#banner');
+    
+    // Events that might change contenteditable contents
+    const events = 'copy paste cut drop focus blur keyup input textInput DOMNodeInserted';
+    text.on(events, function () {
+        upd();
+        adjust();
+    });
+    
+    // Click background to change theme
+    banner.on('click', nextTheme);
+
+    // Swallow clicks on text
+    text.on('click', function (e) {e.stopPropagation()});
+
+    // Adjust text size on resize, and resize now
+    $(window).on('resize', adjust);
+    adjust();
+
+    // Cycle through themes 1 - 11
+    var NUMTHEMES = 11;
+    function nextTheme() {
+        banner.attr('data-theme', (+banner.attr('data-theme')) % NUMTHEMES + 1);
+        updTextStyle();
+        upd();
+        adjust();
+        // Sometimes fonts won't be loaded, adjust again after a short delay to 
+        // mitigate this
+        setTimeout(adjust, 50);
+    }
+
+    function updTextStyle()  {
+        // After CSS change, contenteditable nodes won't adjust font.
+        // This will reset the nodes to match the CSS
+        text.text(text.text());
+    }
+
+    // Update state in hashstate lib
+    function upd() {
+        updateHashState({
+            text: text.text(), 
+            theme: banner.attr('data-theme')
+        });
+    }
+
+    // Adjust font size to fit
+    function adjust() {
+        var max = 80;
+        text.css({fontSize: max+'vh'});
+        while (text[0].getClientRects().length > 1 && max >= 10) {
+            text.css({fontSize: max+'vh'});
+            max -= 2;
+        }
+    }
+})
+</script>
+<script src="hashstate.js"></script>
+<div id="banner" data-theme="1">
+    <div>
+        <span id="text" contenteditable="true">Hello world</span>
+    </div>
+</div>

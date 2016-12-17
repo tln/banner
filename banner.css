@@ -1,0 +1,146 @@
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+#banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 80vh;
+}
+
+@font-face {
+  font-family: 'Arbutus';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arbutus'), url(https://fonts.gstatic.com/s/arbutus/v5/ypNXWtb0hw5NWJX0uzsAIALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Audiowide'), local('Audiowide-Regular'), url(https://fonts.gstatic.com/s/audiowide/v4/8XtYtNKEyyZh481XVWfVOrO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Baloo Thambi';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Baloo Thambi'), local('BalooThambi-Regular'), url(https://fonts.gstatic.com/s/baloothambi/v1/qXK3dZIeU-O-HruaN5cK06RDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1YkaQb-UsZVONjobs91YQtw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Bungee';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bungee'), local('Bungee-Regular'), url(https://fonts.gstatic.com/s/bungee/v2/yTWLtzpDqG8wqsk2Of1ReOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Bungee Shade';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bungee Shade'), local('BungeeShade-Regular'), url(https://fonts.gstatic.com/s/bungeeshade/v2/HSW7pxPYXBWkq7OSnuXoeKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Cabin Sketch';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cabin Sketch Regular'), local('CabinSketch-Regular'), url(https://fonts.gstatic.com/s/cabinsketch/v9/d9fijO34zQajqQvl3YHRCaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'), url(https://fonts.gstatic.com/s/monoton/v6/E1qpC-_4m0LngvlMPmKrlgLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(https://fonts.gstatic.com/s/pressstart2p/v4/8Lg6LX8-ntOHUQnvQ0E7o2jf3WypfQQP02nP_ZmoBRo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Righteous'), local('Righteous-Regular'), url(https://fonts.gstatic.com/s/righteous/v5/w5P-SI7QJQSDqB3GziL8XbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Special Elite';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Special Elite'), local('SpecialElite-Regular'), url(https://fonts.gstatic.com/s/specialelite/v6/9-wW4zu3WNoD5Fjka35Jm4kaQb-UsZVONjobs91YQtw.woff) format('woff');
+}
+
+#banner[data-theme="1"] {
+  background: blue;
+  color: white;
+  font-family: 'Baloo Thambi', cursive;
+}
+
+#banner[data-theme="2"] {
+  background: indianred;
+  color: darkgreen;
+  font-family: 'Arbutus', cursive;
+}
+
+#banner[data-theme="3"] {
+  background: mediumpurple;
+  color: cadetblue;
+  font-family: 'Righteous', cursive;
+}
+
+#banner[data-theme="4"] {
+  background: saddlebrown;
+  color: lightgoldenrodyellow;
+  font-family: 'Audiowide', cursive;
+}
+
+#banner[data-theme="5"] {
+  background: darkslateblue;
+  color: navajowhite;
+  font-family: 'Special Elite', cursive;
+}
+
+#banner[data-theme="6"] {
+  background: darkslateblue;
+  color: orange;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+#banner[data-theme="7"] {
+  background: darkorange;
+  color: palevioletred;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#banner[data-theme="8"] {
+  background: darkslategray;
+  color: lightgrey;
+  font-family: 'Black Ops One', cursive;
+}
+
+#banner[data-theme="9"] {
+  background: indianred;
+  color: darkgreen;
+  font-family: 'Monoton', cursive;
+}
+
+#banner[data-theme="10"] {
+  background: mediumpurple;
+  color: cadetblue;
+  font-family: 'Bungee', cursive;
+}
+
+#banner[data-theme="11"] {
+  background: saddlebrown;
+  color: lightgoldenrodyellow;
+  font-family: 'Bungee Shade', cursive;
+}
+

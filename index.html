@@ -12,14 +12,14 @@ function onHashStateInit(state) {
 }
 $(function () {
     var text = $('#text'), banner = $('#banner');
-    
+
     // Events that might change contenteditable contents
     const events = 'copy paste cut drop focus blur keyup input textInput DOMNodeInserted';
     text.on(events, function () {
         upd();
         adjust();
     });
-    
+
     // Click background to change theme
     banner.on('click', nextTheme);
 
@@ -37,7 +37,7 @@ $(function () {
         updTextStyle();
         upd();
         adjust();
-        // Sometimes fonts won't be loaded, adjust again after a short delay to 
+        // Sometimes fonts won't be loaded, adjust again after a short delay to
         // mitigate this
         setTimeout(adjust, 50);
     }
@@ -51,18 +51,20 @@ $(function () {
     // Update state in hashstate lib
     function upd() {
         updateHashState({
-            text: text.text(), 
+            text: text.text(),
             theme: banner.attr('data-theme')
         });
     }
 
     // Adjust font size to fit
     function adjust() {
-        var max = 80;
-        text.css({fontSize: max+'vh'});
-        while (text[0].getClientRects().length > 1 && max >= 10) {
-            text.css({fontSize: max+'vh'});
-            max -= 2;
+        var fontSize = 80;
+        var maxWidth = banner.width();
+        while (fontSize >= 10) {
+          text.css({fontSize: fontSize+'vh'});
+          fontSize -= 2;
+          var rects = text[0].getClientRects()
+          if (rects.length == 1 && rects[0].width <= maxWidth) break;
         }
     }
 })
